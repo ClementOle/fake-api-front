@@ -46,4 +46,25 @@ export class AuthService {
       }
     )
   }
+
+  /**
+   * Method for register a user
+   * @param user
+   */
+  register(user: User): Promise<any> {
+    return new Promise<any>(
+      (res, rej) => {
+        return this.http.post('https://reqres.in/api/register', user.toJSON())
+          .toPromise()
+          .then((data: any) => {
+            this.token.next(data.token);
+            //@ts-ignore
+            res();
+          })
+          .catch(() => {
+            rej('Les identifiants sont incorrects');
+          })
+      }
+    );
+  }
 }
