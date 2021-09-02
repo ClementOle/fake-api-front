@@ -9,12 +9,11 @@
         FakeAPI
       </a>
 
-      <div class="text-end">
-        <button class="btn btn-success me-2">AJOUTER</button>
-        <button class="btn btn-outline-light me-2">Connexion</button>
+      <div *ngIf="this.token" class="text-end">
+        <button [routerLink]="['posts', 'add']" class="btn btn-success me-2">AJOUTER</button>
+        <button (click)="onClickLogout()" class="btn btn-outline-light me-2">DECONNEXION</button>
         <button class="btn btn-warning">Inscription</button>
       </div>
-
     </div>
 
   </div>
