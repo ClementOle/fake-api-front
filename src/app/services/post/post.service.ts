@@ -54,7 +54,14 @@ export class PostService {
 
   }
 
-
+  /**
+   * Method for add a new post
+   * @param postToAdd
+   */
+  addPost(postToAdd: Post): Promise<any> {
+    return this.http.post('https://jsonplaceholder.typicode.com/posts/', postToAdd.toJSON())
+      .toPromise();
+  }
 
 
   deletePost(postId: number): Promise<any> {
@@ -65,4 +72,20 @@ export class PostService {
 
   }
 
+  /**
+   * Method for retrieve a post
+   * @param id
+   */
+  getPost(id: number): Promise<Post> {
+    return this.http
+      .get('https://jsonplaceholder.typicode.com/posts/' + id)
+      .pipe(
+        map((postAsJson: any) => Post.fromJSON(postAsJson))
+      ).toPromise();
+  }
+
+  editPost(postToEdit: Post): Promise<any> {
+    return this.http.put('https://jsonplaceholder.typicode.com/posts/' + postToEdit.id, postToEdit.toJSON())
+      .toPromise();
+  }
 }

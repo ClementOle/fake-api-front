@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {AbstractControl, FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-errors-form',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./errors-form.component.css']
 })
 export class ErrorsFormComponent implements OnInit {
+  @Input() control: AbstractControl;
+  @Input() controlLabel: string;
 
   constructor() { }
 

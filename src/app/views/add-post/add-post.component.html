@@ -1,5 +1,8 @@
 <div class="container">
   <div class="row col card m-3 shadow">
-    <app-post-form></app-post-form>
+    <div class="card-boddy">
+      <h3 class="card-title text-center">CREATION ARTICLE</h3>
+      <app-post-form (formSubmitted)="addPost($event)"></app-post-form>
+    </div>
   </div>
 </div>

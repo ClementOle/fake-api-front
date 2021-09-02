@@ -4,18 +4,17 @@
       Titre de l'article
     </label>
     <input type="text" id="title" class="form-control" formControlName="title" [(ngModel)]="post.title"/>
+
+    <app-errors-form [control]="form.controls.title" controlLabel="Titre de l'article"></app-errors-form>
+
   </div>
   <div class="form-group">
     <label for="body">
       Contenu de l'article
     </label>
     <textarea id="body" class="form-control" formControlName="body" [(ngModel)]="post.body"></textarea>
-    <div *ngIf="form.controls.body.invalid && (form.controls.body.dirty ||form.controls.body.touched)"
-         class="alert alert-danger mt-1">
-      <ng-container *ngIf="form.controls.body.errors?.required">
-        Le contenu de l'article est obligatoire.
-      </ng-container>
-    </div>
+
+    <app-errors-form [control]="form.controls.body" controlLabel="Contenu de l'article"></app-errors-form>
   </div>
   <button type="submit"
           class="btn btn-dark btn-lg text-uppercase m-3" [routerLink]="'posts/add'"
