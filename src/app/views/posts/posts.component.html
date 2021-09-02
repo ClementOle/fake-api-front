@@ -1,0 +1,26 @@
+<div class="container">
+
+  <div *ngFor="let row of rows; index as iR" class="row">
+
+    <div *ngFor="let col of cols; index as iC" class="col card m-3 shadow">
+
+      <img src="https://source.unsplash.com/random" class="card-img-top" style="max-height: 400px">
+      <div class="card-body">
+        <h5 class="card-title">{{ this.posts[getPostIndex(iR, iC)].title }}</h5>
+        <p class="card-text">{{ this.posts[getPostIndex(iR, iC)].body }}</p>
+      </div>
+
+      <div class="d-flex justify-content-end mb-4">
+        <!--http://localhost:4200/posts/1-->
+        <a [routerLink]="['posts', this.posts[getPostIndex(iR, iC)].id]"
+           class="btn btn-outline-primary mx-1">DÉTAILS.</a>
+        <!--http://localhost:4200/posts/1/edit-->
+        <a [routerLink]="['posts', this.posts[getPostIndex(iR, iC)].id, 'edit']" class="btn btn-outline-warning mx-1">MODIF.</a>
+        <button (click)="onClickDeletePost(this.posts[getPostIndex(iR, iC)].id)" class="btn btn-outline-danger mx-1">SUPP.</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

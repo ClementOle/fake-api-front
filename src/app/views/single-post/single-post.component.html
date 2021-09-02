@@ -1,0 +1,28 @@
+<div class="container">
+
+  <div class="row">
+
+    <div *ngIf="this.post" class="col-8 card m-3 shadow mx-auto">
+
+      <img src="https://source.unsplash.com/random" class="card-img-top" style="max-height: 400px">
+      <div class="card-body">
+        <h5 class="card-title">{{ this.post.title }}</h5>
+        <p class="card-text">{{ this.post.body }}</p>
+      </div>
+
+      <hr>
+
+      <div class="text-center">
+        <h4>COMMENTAIRES</h4>
+      </div>
+
+      <div *ngFor="let comment of this.post.comments" class="card p-2 my-2">
+        <p class="fw-bold">{{ comment.name }}, <span class="fw-light fst-italic">{{ comment.email }}</span></p>
+        <p>{{ comment.body }}</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
