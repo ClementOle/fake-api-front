@@ -14,7 +14,6 @@ export class PostFormComponent implements OnInit {
 
   form: FormGroup;
 
-
   constructor(private fb: FormBuilder) {
     this.post = new Post('', '');
     this.formSubmitted = new EventEmitter<any>();
