@@ -14,8 +14,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {PostService} from './services/post/post.service';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ErrorsFormComponent} from "./components/errors-form/errors-form.component";
-import { LoginComponent } from './views/login/login.component';
-import { RegisterComponent } from './views/register/register.component';
+import {LoginComponent} from './views/login/login.component';
+import {RegisterComponent} from './views/register/register.component';
+import {AuthService} from "./services/auth/auth.service";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { RegisterComponent } from './views/register/register.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [PostService],
+  providers: [PostService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

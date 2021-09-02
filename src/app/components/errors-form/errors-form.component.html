@@ -3,6 +3,9 @@
   <div *ngIf="control.errors?.required">
     * Le champ '{{controlLabel}}' est obligatoire.
   </div>
+  <div *ngIf="control.errors?.email">
+    * Le champ '{{controlLabel}}' n'est pas au format email.
+  </div>
   <div *ngIf="control.errors?.minlength">
     * Le champ '{{controlLabel}}' doit avoir au minimum {{control.errors?.minlength.requiredLength}}
     {{control.errors?.minlength.requiredLength === 1 ? 'caractère' : 'caractères'}}.
