@@ -6,15 +6,16 @@ import {AddPostComponent} from "./views/add-post/add-post.component";
 import {EditPostComponent} from "./views/edit-post/edit-post.component";
 import {LoginComponent} from "./views/login/login.component";
 import {RegisterComponent} from "./views/register/register.component";
+import {AuthGuard} from "./guards/auth/auth.guard";
 
 const routes: Routes = [
-  {path: '', component: PostsComponent},
+  {path: '', canActivate: [AuthGuard], component: PostsComponent},
   {path: 'signin', component: LoginComponent},
   {path: 'signup', component: RegisterComponent},
-  {path: 'posts/add', component: AddPostComponent},
-  {path: 'posts/:id/edit', component: EditPostComponent},
-  {path: 'posts/:id', component: SinglePostComponent},
-  {path: 'posts', component: PostsComponent},
+  {path: 'posts/add', canActivate: [AuthGuard], component: AddPostComponent},
+  {path: 'posts/:id/edit', canActivate: [AuthGuard], component: EditPostComponent},
+  {path: 'posts/:id', canActivate: [AuthGuard], component: SinglePostComponent},
+  {path: 'posts', canActivate: [AuthGuard], component: PostsComponent},
   {path: '**', redirectTo: ''},
 ];
 
